@@ -3,17 +3,20 @@ package rest.mvc.example.service;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.springframework.stereotype.Service;
+
 import rest.mvc.example.api.v1.mapper.CategoryMapper;
 import rest.mvc.example.api.v1.model.CategoryDTO;
 import rest.mvc.example.repository.CategoryRepository;
 
+@Service
 public class CategoryServiceImpl implements CategoryService {
 
-	private final CategoryMapper categoryMapper;
+	private final CategoryMapper categoryMapperImpl;
 	private final CategoryRepository categoryRepository;
 	
-	public CategoryServiceImpl(CategoryMapper categoryMapper, CategoryRepository categoryRepository) {
-		this.categoryMapper = categoryMapper;
+	public CategoryServiceImpl(CategoryMapper categoryMapperImpl, CategoryRepository categoryRepository) {
+		this.categoryMapperImpl = categoryMapperImpl;
 		this.categoryRepository = categoryRepository;
 	}
 	
@@ -21,13 +24,13 @@ public class CategoryServiceImpl implements CategoryService {
 	public List<CategoryDTO> getAllCategories() {
 		return categoryRepository.findAll()
 				.stream()
-				.map(categoryMapper::categoryToCategoryDTO)
+				.map(categoryMapperImpl::categoryToCategoryDTO)
 				.collect(Collectors.toList());
 	}
 	
 	@Override
 	public CategoryDTO getCategoryByName(String name) {
-		return categoryMapper.categoryToCategoryDTO(categoryRepository.findByName(name));
+		return categoryMapperImpl.categoryToCategoryDTO(categoryRepository.findByName(name));
 	}
 	
 }
