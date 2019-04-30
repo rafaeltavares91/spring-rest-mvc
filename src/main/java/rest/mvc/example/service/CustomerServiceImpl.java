@@ -5,9 +5,11 @@ import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 
-import rest.mvc.example.api.v1.mapper.CustomerMapper;
-import rest.mvc.example.api.v1.model.CustomerDTO;
+import rest.mvc.example.controller.v1.CustomerController;
 import rest.mvc.example.domain.Customer;
+import rest.mvc.example.exception.ResourceNotFoundException;
+import rest.mvc.example.mapper.v1.CustomerMapper;
+import rest.mvc.example.model.v1.CustomerDTO;
 import rest.mvc.example.repository.CustomerRepository;
 
 @Service
@@ -27,7 +29,7 @@ public class CustomerServiceImpl implements CustomerService {
 				.stream()
 				.map(customer -> {
 					CustomerDTO customerDTO = customerMapper.customerToCustomerDTO(customer);
-					customerDTO.setUrl("/api/v1/customer/" + customer.getId());
+					customerDTO.setUrl(CustomerController.BASE_URL + customer.getId());
 					return customerDTO;
 				})
 				.collect(Collectors.toList());
@@ -35,7 +37,10 @@ public class CustomerServiceImpl implements CustomerService {
 	
 	@Override
 	public CustomerDTO getCustomerById(Long id) {
-		return customerMapper.customerToCustomerDTO(customerRepository.findById(id).get());
+		CustomerDTO customerDTO = customerMapper.customerToCustomerDTO(
+				customerRepository.findById(id).orElseThrow(ResourceNotFoundException::new));
+		customerDTO.setUrl(CustomerController.BASE_URL + id);
+		return customerDTO;
 	}
 	
 	@Override
@@ -46,7 +51,7 @@ public class CustomerServiceImpl implements CustomerService {
     private CustomerDTO saveAndReturnDTO(Customer customer) {
         Customer savedCustomer = customerRepository.save(customer);
         CustomerDTO returnDto = customerMapper.customerToCustomerDTO(savedCustomer);
-        returnDto.setUrl("/api/v1/customer/" + savedCustomer.getId());
+        returnDto.setUrl(CustomerController.BASE_URL + savedCustomer.getId());
         return returnDto;
     }
 
@@ -67,9 +72,9 @@ public class CustomerServiceImpl implements CustomerService {
                 customer.setLastName(customerDTO.getLastName());
             }
             CustomerDTO returnDto = customerMapper.customerToCustomerDTO(customerRepository.save(customer));
-            returnDto.setUrl("/api/v1/customer/" + id);
+            returnDto.setUrl(CustomerController.BASE_URL + id);
             return returnDto;
-        }).get();
+        }).orElseThrow(ResourceNotFoundException::new);
     }
 
     @Override

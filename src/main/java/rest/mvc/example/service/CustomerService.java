@@ -2,7 +2,7 @@ package rest.mvc.example.service;
 
 import java.util.List;
 
-import rest.mvc.example.api.v1.model.CustomerDTO;
+import rest.mvc.example.model.v1.CustomerDTO;
 
 public interface CustomerService {
 

@@ -1,4 +1,4 @@
-package rest.mvc.example.api.v1.controller;
+package rest.mvc.example.controller.v1;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import rest.mvc.example.api.v1.model.CategoryDTO;
-import rest.mvc.example.api.v1.model.CategoryListDTO;
+import rest.mvc.example.model.v1.CategoryDTO;
+import rest.mvc.example.model.v1.CategoryListDTO;
 import rest.mvc.example.service.CategoryService;
 
 @Controller

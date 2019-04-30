@@ -1,10 +1,10 @@
-package rest.mvc.example.api.v1.mapper;
+package rest.mvc.example.mapper.v1;
 
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
-import rest.mvc.example.api.v1.model.CategoryDTO;
 import rest.mvc.example.domain.Category;
+import rest.mvc.example.model.v1.CategoryDTO;
 
 @Mapper
 public interface CategoryMapper {

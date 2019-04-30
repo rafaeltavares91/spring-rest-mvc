@@ -13,9 +13,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import rest.mvc.example.api.v1.mapper.CustomerMapper;
-import rest.mvc.example.api.v1.model.CustomerDTO;
 import rest.mvc.example.domain.Customer;
+import rest.mvc.example.mapper.v1.CustomerMapper;
+import rest.mvc.example.model.v1.CustomerDTO;
 import rest.mvc.example.repository.CustomerRepository;
 
 @RunWith(SpringRunner.class)
@@ -24,10 +24,10 @@ public class CustomerServiceITTest {
 	
 	private static final long ID_GABRIEL = 1;
 
-	@Autowired
-    private CustomerRepository customerRepository;
-
     private CustomerService customerService;
+    
+    @Autowired
+    private CustomerRepository customerRepository;
 
     @Before
     public void setUp() throws Exception {

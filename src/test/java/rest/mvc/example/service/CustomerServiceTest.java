@@ -14,19 +14,22 @@ import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
-import rest.mvc.example.api.v1.mapper.CustomerMapper;
-import rest.mvc.example.api.v1.model.CustomerDTO;
+import rest.mvc.example.controller.v1.CustomerController;
 import rest.mvc.example.domain.Customer;
+import rest.mvc.example.mapper.v1.CustomerMapper;
+import rest.mvc.example.model.v1.CustomerDTO;
 import rest.mvc.example.repository.CustomerRepository;
 
 public class CustomerServiceTest {
 	
-	@Mock
-    private CustomerRepository customerRepository;
-
+	private static final String BASE_URL_1 = CustomerController.BASE_URL.concat("1");
+	
     private CustomerMapper customerMapper = CustomerMapper.INSTANCE;
 
     private CustomerService customerService;
+    
+    @Mock
+    private CustomerRepository customerRepository;
 
     @Before
     public void setUp() throws Exception {
@@ -92,7 +95,7 @@ public class CustomerServiceTest {
 
         //then
         assertEquals(customerDTO.getFirstName(), savedDto.getFirstName());
-        assertEquals("/api/v1/customer/1", savedDto.getUrl());
+        assertEquals(BASE_URL_1, savedDto.getUrl());
     }
 
     @Test
@@ -113,7 +116,7 @@ public class CustomerServiceTest {
 
         //then
         assertEquals(customerDTO.getFirstName(), savedDto.getFirstName());
-        assertEquals("/api/v1/customer/1", savedDto.getUrl());
+        assertEquals(BASE_URL_1, savedDto.getUrl());
     }
     
     @Test

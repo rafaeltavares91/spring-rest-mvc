@@ -4,8 +4,9 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-import rest.mvc.example.api.v1.model.CategoryDTO;
 import rest.mvc.example.domain.Category;
+import rest.mvc.example.mapper.v1.CategoryMapper;
+import rest.mvc.example.model.v1.CategoryDTO;
 
 public class CategoryMapperTest {
 
