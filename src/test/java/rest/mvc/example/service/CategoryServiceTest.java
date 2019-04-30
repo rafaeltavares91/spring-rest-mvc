@@ -21,10 +21,11 @@ public class CategoryServiceTest {
 
     public static final Long ID = 2L;
     public static final String NAME = "Jimmy";
-    CategoryService categoryService;
+    
+    private CategoryService categoryService;
 
     @Mock
-    CategoryRepository categoryRepository;
+    private CategoryRepository categoryRepository;
 
     @Before
     public void setUp() throws Exception {

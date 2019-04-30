@@ -12,7 +12,7 @@ public class CategoryMapperTest {
 	private static final long ID = 1L;
 	private static final String NAME = "Rafa";
 	
-	CategoryMapper categoryMapper = CategoryMapper.INSTANCE;
+	private CategoryMapper categoryMapper = CategoryMapper.INSTANCE;
 	
 	@Test
 	public void categoryToCateryDTO() throws Exception {

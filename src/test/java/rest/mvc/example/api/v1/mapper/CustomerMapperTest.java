@@ -12,7 +12,7 @@ public class CustomerMapperTest {
 	public static final String FIRSTNAME = "Jimmy";
     public static final String LASTNAME = "Fallon";
     
-    CustomerMapper customerMapper = CustomerMapper.INSTANCE;
+    private CustomerMapper customerMapper = CustomerMapper.INSTANCE;
 
     @Test
     public void customerToCustomerDTO() throws Exception {

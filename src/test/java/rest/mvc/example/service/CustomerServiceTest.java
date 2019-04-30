@@ -22,11 +22,11 @@ import rest.mvc.example.repository.CustomerRepository;
 public class CustomerServiceTest {
 	
 	@Mock
-    CustomerRepository customerRepository;
+    private CustomerRepository customerRepository;
 
-    CustomerMapper customerMapper = CustomerMapper.INSTANCE;
+    private CustomerMapper customerMapper = CustomerMapper.INSTANCE;
 
-    CustomerService customerService;
+    private CustomerService customerService;
 
     @Before
     public void setUp() throws Exception {
