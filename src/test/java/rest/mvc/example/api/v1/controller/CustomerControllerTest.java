@@ -34,7 +34,7 @@ import rest.mvc.example.service.CustomerService;
 
 public class CustomerControllerTest extends AbstractRestControllerTest {
 
-	private static final String BASE_URL_1 = CustomerController.BASE_URL.concat("1");
+	private static final String BASE_URL_1 = CustomerController.BASE_URL.concat("/1");
 
 	@InjectMocks
     private CustomerController customerController;
