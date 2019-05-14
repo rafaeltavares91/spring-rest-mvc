@@ -1,4 +1,4 @@
-package rest.mvc.example.api.v1.controller;
+package rest.mvc.example.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 

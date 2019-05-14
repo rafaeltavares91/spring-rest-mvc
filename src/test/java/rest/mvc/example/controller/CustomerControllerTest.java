@@ -1,4 +1,4 @@
-package rest.mvc.example.api.v1.controller;
+package rest.mvc.example.controller;
 
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.hasSize;
@@ -26,10 +26,10 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
+import rest.mvc.example.controller.CustomerController;
 import rest.mvc.example.controller.RestResponseEntityExceptionHandler;
-import rest.mvc.example.controller.v1.CustomerController;
 import rest.mvc.example.exception.ResourceNotFoundException;
-import rest.mvc.example.model.v1.CustomerDTO;
+import rest.mvc.example.model.CustomerDTO;
 import rest.mvc.example.service.CustomerService;
 
 public class CustomerControllerTest extends AbstractRestControllerTest {
@@ -103,7 +103,7 @@ public class CustomerControllerTest extends AbstractRestControllerTest {
         CustomerDTO returnDTO = new CustomerDTO();
         returnDTO.setFirstName(customer.getFirstName());
         returnDTO.setLastName(customer.getLastName());
-        returnDTO.setUrl("/api/v1/customers/1");
+        returnDTO.setUrl(BASE_URL_1);
 
         when(customerService.createNewCustomer(customer)).thenReturn(returnDTO);
 

@@ -14,8 +14,8 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import rest.mvc.example.domain.Customer;
-import rest.mvc.example.mapper.v1.CustomerMapper;
-import rest.mvc.example.model.v1.CustomerDTO;
+import rest.mvc.example.mapper.CustomerMapper;
+import rest.mvc.example.model.CustomerDTO;
 import rest.mvc.example.repository.CustomerRepository;
 
 @RunWith(SpringRunner.class)

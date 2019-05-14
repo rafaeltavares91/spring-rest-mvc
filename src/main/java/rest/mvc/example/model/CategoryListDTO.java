@@ -1,4 +1,4 @@
-package rest.mvc.example.model.v1;
+package rest.mvc.example.model;
 
 import java.util.List;
 
@@ -9,8 +9,8 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class CustomerListDTO {
+public class CategoryListDTO {
 
-	private List<CustomerDTO> customers;
+	private List<CategoryDTO> categories;
 	
 }

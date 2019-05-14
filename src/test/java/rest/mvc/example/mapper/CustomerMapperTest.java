@@ -1,12 +1,12 @@
-package rest.mvc.example.api.v1.mapper;
+package rest.mvc.example.mapper;
 
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
 import rest.mvc.example.domain.Customer;
-import rest.mvc.example.mapper.v1.CustomerMapper;
-import rest.mvc.example.model.v1.CustomerDTO;
+import rest.mvc.example.mapper.CustomerMapper;
+import rest.mvc.example.model.CustomerDTO;
 
 public class CustomerMapperTest {
 

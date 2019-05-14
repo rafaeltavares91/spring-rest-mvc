@@ -1,4 +1,4 @@
-package rest.mvc.example.api.v1.controller;
+package rest.mvc.example.controller;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.Matchers.hasSize;
@@ -20,10 +20,10 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
+import rest.mvc.example.controller.CategoryController;
 import rest.mvc.example.controller.RestResponseEntityExceptionHandler;
-import rest.mvc.example.controller.v1.CategoryController;
 import rest.mvc.example.exception.ResourceNotFoundException;
-import rest.mvc.example.model.v1.CategoryDTO;
+import rest.mvc.example.model.CategoryDTO;
 import rest.mvc.example.service.CategoryService;
 
 public class CategoryControllerTest {

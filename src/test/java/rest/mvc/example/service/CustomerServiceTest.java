@@ -14,10 +14,10 @@ import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
-import rest.mvc.example.controller.v1.CustomerController;
+import rest.mvc.example.controller.CustomerController;
 import rest.mvc.example.domain.Customer;
-import rest.mvc.example.mapper.v1.CustomerMapper;
-import rest.mvc.example.model.v1.CustomerDTO;
+import rest.mvc.example.mapper.CustomerMapper;
+import rest.mvc.example.model.CustomerDTO;
 import rest.mvc.example.repository.CustomerRepository;
 
 public class CustomerServiceTest {

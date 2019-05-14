@@ -1,4 +1,4 @@
-package rest.mvc.example.model.v1;
+package rest.mvc.example.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 

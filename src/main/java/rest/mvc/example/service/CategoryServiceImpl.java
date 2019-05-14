@@ -5,8 +5,8 @@ import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 
-import rest.mvc.example.mapper.v1.CategoryMapper;
-import rest.mvc.example.model.v1.CategoryDTO;
+import rest.mvc.example.mapper.CategoryMapper;
+import rest.mvc.example.model.CategoryDTO;
 import rest.mvc.example.repository.CategoryRepository;
 
 @Service

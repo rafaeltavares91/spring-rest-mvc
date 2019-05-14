@@ -2,7 +2,7 @@ package rest.mvc.example.service;
 
 import java.util.List;
 
-import rest.mvc.example.model.v1.CategoryDTO;
+import rest.mvc.example.model.CategoryDTO;
 
 public interface CategoryService {
 
