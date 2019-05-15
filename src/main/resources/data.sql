@@ -1,1 +1,1 @@
-insert into customer (id, first_name, last_name) values (1, 'Gabriel', 'Pires');
+insert into customer (id, first_name, last_name, password) values (1, 'Gabriel', 'Pires', '123456');

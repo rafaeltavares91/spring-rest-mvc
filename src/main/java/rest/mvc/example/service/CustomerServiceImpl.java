@@ -3,6 +3,7 @@ package rest.mvc.example.service;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import rest.mvc.example.controller.CustomerController;
@@ -17,10 +18,12 @@ public class CustomerServiceImpl implements CustomerService {
 
 	private final CustomerMapper customerMapper;
 	private final CustomerRepository customerRepository;
+	private final BCryptPasswordEncoder passwordEncoder;
 	
-	public CustomerServiceImpl(CustomerMapper customerMapper, CustomerRepository customerRepository) {
+	public CustomerServiceImpl(CustomerMapper customerMapper, CustomerRepository customerRepository, BCryptPasswordEncoder passwordEncoder) {
 		this.customerMapper = customerMapper;
 		this.customerRepository = customerRepository;
+		this.passwordEncoder = passwordEncoder;
 	}
 	
 	@Override
@@ -45,7 +48,8 @@ public class CustomerServiceImpl implements CustomerService {
 	
 	@Override
     public CustomerDTO createNewCustomer(CustomerDTO customerDTO) {
-        return saveAndReturnDTO(customerMapper.customerDtoToCustomer(customerDTO));
+		customerDTO.setPassword(passwordEncoder.encode(customerDTO.getPassword()));
+        return saveAndReturnDTO(customerMapper.customerDTOToCustomer(customerDTO));
     }
 
     private CustomerDTO saveAndReturnDTO(Customer customer) {
@@ -57,7 +61,7 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public CustomerDTO saveCustomerByDTO(Long id, CustomerDTO customerDTO) {
-        Customer customer = customerMapper.customerDtoToCustomer(customerDTO);
+        Customer customer = customerMapper.customerDTOToCustomer(customerDTO);
         customer.setId(id);
         return saveAndReturnDTO(customer);
     }

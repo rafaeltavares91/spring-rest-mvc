@@ -8,8 +8,12 @@ import lombok.Data;
 public class CustomerDTO {
 
 	private Long id;
+	
 	private String firstName;
+	
 	private String lastName;
+	
+	private String password;
 	
 	@JsonProperty("customer_url")
 	private String url;

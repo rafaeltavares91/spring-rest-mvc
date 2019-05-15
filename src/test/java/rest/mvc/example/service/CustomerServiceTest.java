@@ -13,6 +13,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import rest.mvc.example.controller.CustomerController;
 import rest.mvc.example.domain.Customer;
@@ -30,12 +31,15 @@ public class CustomerServiceTest {
     
     @Mock
     private CustomerRepository customerRepository;
+    
+    @Mock
+    private BCryptPasswordEncoder passwordEncoder;
 
     @Before
     public void setUp() throws Exception {
         MockitoAnnotations.initMocks(this);
 
-        customerService = new CustomerServiceImpl(customerMapper, customerRepository);
+        customerService = new CustomerServiceImpl(customerMapper, customerRepository, passwordEncoder);
     }
 
     @Test

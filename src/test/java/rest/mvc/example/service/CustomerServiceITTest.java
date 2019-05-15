@@ -9,8 +9,11 @@ import static org.junit.Assert.assertThat;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import rest.mvc.example.domain.Customer;
@@ -28,13 +31,18 @@ public class CustomerServiceITTest {
     
     @Autowired
     private CustomerRepository customerRepository;
+    
+    @Mock
+    private BCryptPasswordEncoder passwordEncoder;
 
     @Before
     public void setUp() throws Exception {
+    	MockitoAnnotations.initMocks(this);
+    	
         System.out.println("Loading Customer Data");
         System.out.println(customerRepository.findAll().size());
 
-        customerService = new CustomerServiceImpl(CustomerMapper.INSTANCE, customerRepository);
+        customerService = new CustomerServiceImpl(CustomerMapper.INSTANCE, customerRepository, passwordEncoder);
     }
 
     @Test
