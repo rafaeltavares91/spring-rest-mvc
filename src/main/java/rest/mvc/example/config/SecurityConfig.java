@@ -24,12 +24,16 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	private Environment env;
 	
 	private static final String[] PUBLIC_MATCHERS = {
-			"h2-console/**"
+			"h2-console/**",
+			"customers/**",
+			"categories/**",
+			"/swagger-resources/**",
+			"/swagger-ui.html",
+            "/v2/api-docs",
+            "/webjars/**"
 	};
 	
 	private static final String[] PUBLIC_MATCHERS_GET = {
-			"customers/**",
-			"categories/**"
 	};
 	
 	@Override
@@ -39,9 +43,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		}
 		http.cors().and().csrf().disable();
 		http.authorizeRequests()
-			.antMatchers(PUBLIC_MATCHERS).permitAll()
-			.antMatchers(HttpMethod.GET, PUBLIC_MATCHERS_GET).permitAll()
-			.anyRequest().authenticated();
+			.antMatchers(PUBLIC_MATCHERS).permitAll();
+			//.antMatchers(HttpMethod.GET, PUBLIC_MATCHERS_GET).permitAll()
+			//.anyRequest().authenticated();
 		http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 	}
 	
